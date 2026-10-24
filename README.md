@@ -17,6 +17,8 @@ baseado nos templates oficiais (Word) da UFERSA e nas normas da ABNT.
 > biblioteca e do seu curso ou programa. Confira sempre a versão mais recente
 > dos templates, manuais e tutoriais no site das bibliotecas da UFERSA:
 > <https://bibliotecas.ufersa.edu.br/manual-normas-templates-tutoriais/>
+> 
+> Se notar alguma divergência, veja a seção [Contribua](#contribua).
 
 ## O que o modelo gera
 
@@ -132,6 +134,25 @@ com as normas ABNT NBR 14724 (trabalhos acadêmicos), NBR 6023:2018
 (referências), NBR 6024:2012 (numeração progressiva), NBR 6027:2012 (sumário),
 NBR 6028:2021 (resumo) e NBR 10520:2023 (citações). As normas ABNT são
 protegidas por direitos autorais e **não** são distribuídas com este modelo.
+
+## Contribua
+
+Contribuições são bem-vindas, principalmente para manter o modelo alinhado
+aos templates oficiais da UFERSA, que podem mudar com o tempo.
+
+- **Encontrou um problema?** Abra uma
+  [issue](../../issues) descrevendo o que está errado. Se possível, inclua
+  um trecho do PDF gerado e o trecho correspondente do template oficial.
+- **Quer corrigir ou melhorar algo?**
+  1. Faça um *fork* do repositório.
+  2. Crie um *branch* para a alteração.
+  3. Faça as mudanças e confira se o documento compila sem erros
+     (`make` ou Overleaf).
+  4. Envie um *pull request* explicando o que mudou e, quando for o caso,
+     qual norma ou template oficial motivou a mudança.
+
+Sugestões de melhoria, novos exemplos nos capítulos e correções no README
+também ajudam.
 
 ## Créditos e licença
 
