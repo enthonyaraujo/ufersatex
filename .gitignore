@@ -1,0 +1,39 @@
+# Arquivos auxiliares do LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.loq
+*.lol
+*.lom
+*.lgr
+*.loa
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.idx
+*.ilg
+*.ind
+*.xdy
+*~
+
+# PDF gerado
+documento.pdf
+
+# Material de referência local (normas ABNT e templates da UFERSA).
+# As normas ABNT são protegidas por direitos autorais e não podem ser
+# redistribuídas; os templates oficiais devem ser obtidos no site da UFERSA:
+# https://bibliotecas.ufersa.edu.br/manual-normas-templates-tutoriais/
+docs/

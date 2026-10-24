@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% Modelo LaTeX NÃO OFICIAL para trabalhos           %%
+%% acadêmicos da UFERSA, mantido por                 %%
+%% Enthony Araujo.                                   %%
+%%                                                   %%
+%% Versão modificada do modelo da UFC (Ednardo       %%
+%% Moreira Rodrigues, Alan Batista de Oliveira e     %%
+%% colaboradores), adaptado do ueceTeX2 (Thiago      %%
+%% Nascimento, https://github.com/thiagodnf/uecetex2)%%
+%% e baseado no abnTeX2. Créditos completos e        %%
+%% licença (LPPL 1.3c) em lib/ufersatex.sty,         %%
+%% README.md e LICENSE.                              %%
+%%                                                   %%
+%% Instruções de uso: README.md                      %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Importações de pacotes
+\usepackage[utf8]{inputenc}                         % Acentuação direta
+\usepackage[T1]{fontenc}                            % Codificação da fonte em 8 bits
+\usepackage{graphicx}                               % Inserir figuras
+\usepackage{amsmath,amsthm,amsfonts,amssymb}        % Fontes e símbolos matemáticos
+\usepackage{booktabs}                               % Comandos para tabelas
+\usepackage{verbatim}                               % Texto é interpretado como escrito no documento
+\usepackage{multirow, array}                        % Múltiplas linhas e colunas em tabelas
+\usepackage{indentfirst}                            % Endenta o primeiro parágrafo de cada seção.
+\usepackage{listings}                               % Utilizar codigo fonte no documento
+\usepackage{xcolor}                                 % Cores
+\usepackage{microtype}                              % Melhorias de justificação
+\usepackage[portuguese,ruled,lined]{algorithm2e}    % Escrever algoritmos
+\usepackage{tocloft}                                % Permite alterar a formatação do Sumário
+\usepackage{etoolbox}                               % Usado para alterar a fonte da Section no Sumário
+\usepackage{enumitem}                               % Listas (alíneas)
+\usepackage[nogroupskip,nonumberlist]{glossaries}   % Lista de abreviaturas e siglas e glossário
+\usepackage{caption}                                % Altera o comportamento da tag caption
+
+% Citações e referências no sistema autor-data, conforme NBR 10520:2023 e
+% NBR 6023:2018:
+%  - \citeoption{ufersa-nbr10520-2023} (abaixo): sobrenome em maiúsculas e
+%    minúsculas também dentro dos parênteses, ex.: (Silva, 2023);
+%    ver lib/abnt-opcoes-ufersa.bib;
+%  - abnt-etal-cite=3: "et al." na citação para quatro ou mais autores;
+%  - abnt-etal-list=0: todos os autores na lista de referências;
+%  - abnt-emphasize=bf: destaque do título em negrito.
+\usepackage[alf, abnt-emphasize=bf, recuo=0cm, abnt-etal-cite=3, abnt-etal-list=0, abnt-etal-text=it]{abntex2cite}
+\AtBeginDocument{\citeoption{ufersa-nbr10520-2023}}
+
+\usepackage{chngcntr}
+\counterwithout{equation}{chapter}                  % Equações numeradas (1), (2), ...
+
+%%%%%%%%%%%%%%%%%%% FONTE DO TEXTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% O template da UFERSA aceita Times ou Arial, tamanho 12.
+% Padrão: Times New Roman.
+\usepackage{mathptmx}         % Usa a fonte Times New Roman
+% Para usar Arial, comente a linha acima e descomente as duas abaixo:
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pdfpages}         % Incluir pdf no documento (ficha catalográfica, errata etc.)
+\usepackage{lib/ufersatex}    % Configurações do modelo (UFERSA)
+
+\makeglossaries % Organiza e gera a lista de abreviaturas, simbolos e glossario
+\makeindex      % Gera o Indice do documento

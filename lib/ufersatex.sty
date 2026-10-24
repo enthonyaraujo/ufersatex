@@ -1,0 +1,1054 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% Modelo LaTeX NÃO OFICIAL para trabalhos           %%
+%% acadêmicos da Universidade Federal Rural do       %%
+%% Semi-Árido (UFERSA), baseado nos templates        %%
+%% oficiais (Word) da UFERSA e nas normas da ABNT.   %%
+%%                                                   %%
+%%                                                   %%
+%%                                                   %%
+%% Este modelo NÃO é mantido nem endossado pela      %%
+%% UFERSA. Em caso de divergência, prevalecem os     %%
+%% templates e as orientações oficiais da            %%
+%% instituição e do seu curso/programa.              %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% CRÉDITOS DO TRABALHO ORIGINAL                     %%
+%%                                                   %%
+%% Este arquivo é uma versão MODIFICADA do modelo    %%
+%% de trabalhos acadêmicos da Universidade Federal   %%
+%% do Ceará (UFC), cujos principais desenvolvedores  %%
+%% são:                                              %%
+%%                                                   %%
+%%            Ednardo Moreira Rodrigues              %%
+%%                      &                            %%
+%%            Alan Batista de Oliveira               %%
+%%                                                   %%
+%% Revisão: Francisco Edvander Pires Santos,         %%
+%% Juliana Soares Lima, Izabel Lima dos Santos,      %%
+%% Kalline Yasmin Soares Feitosa e                   %%
+%% Eliene Maria Vieira de Moura.                     %%
+%%                                                   %%
+%% Colaboradores: Andrei Bosco Bezerra Torres e      %%
+%% Tiago Alves Lima.                                 %%
+%%                                                   %%
+%% O modelo da UFC, por sua vez, foi adaptado do     %%
+%% ueceTeX2, elaborado por Thiago Nascimento (UECE): %%
+%% https://github.com/thiagodnf/uecetex2             %%
+%%                                                   %%
+%% Ambos são customizações do abnTeX2:               %%
+%% https://www.abntex.net.br/                        %%
+%%                                                   %%
+%% Os autores acima NÃO prestam suporte a esta       %%
+%% versão modificada. A lista de alterações em       %%
+%% relação ao original está no arquivo %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% This work may be distributed and/or modified      %%
+%% under the conditions of the LaTeX Project Public  %%
+%% License, either version 1.3 of this license or    %%
+%% (at your option) any later version. The latest    %%
+%% version of this license is in                     %%
+%%   http://www.latex-project.org/lppl.txt           %%
+%% and version 1.3 or later is part of all           %%
+%% distributions of LaTeX version 2005/12/01 or      %%
+%% later.                                            %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{lib/ufersatex}[2026/10/23 Modelo nao oficial UFERSA (modificado do modelo UFC/ueceTeX2)]
+
+%\usepackage[showframe, pass]{geometry} % Se voce quer ver as margens do documento no PDF, descomente essa linha
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Definicoes              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Importa o arquivo com as entradas do glossario
+\input{1-pre-textuais/lista-de-abreviaturas-e-siglas}
+\input{3-pos-textuais/glossario}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       Formatacao das Paginas        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Espaçamento 1,5 entre linhas (NBR 14724, 5.2)
+\renewcommand{\baselinestretch}{1.5}
+
+% Margens: superior e esquerda 3 cm; inferior e direita 2 cm (NBR 14724, 5.1)
+\setlrmarginsandblock{3cm}{2cm}{*} % esquerda / direita
+\setulmarginsandblock{3cm}{2cm}{*} % superior / inferior
+
+% Espacamentos nos titulos:
+% chapter
+\setlength{\beforechapskip}{-\onelineskip}
+\setlength{\afterchapskip}{\onelineskip}
+
+% section
+\setbeforesecskip{18pt}
+\setaftersecskip{\onelineskip}
+
+% subsection
+\setbeforesubsecskip{\onelineskip}
+\setaftersubsecskip{\onelineskip}
+
+% subsubsection
+\setbeforesubsubsecskip{\onelineskip}
+\setaftersubsubsecskip{\onelineskip}
+
+% subsubsubsection
+\setbeforeparaskip{\onelineskip}
+\setafterparaskip{\onelineskip}
+
+% Recuo da primeira linha do paragrafo: 1,25 cm (template UFERSA)
+\setlength{\parindent}{1.25cm}
+
+% Titulos das secoes (template UFERSA / manual institucional):
+% - primarias: negrito e maiusculas;
+% - secundarias: negrito, maiusculas/minusculas conforme a gramatica;
+% - terciarias a quinarias: sem negrito.
+
+% Secao primaria (1)
+\renewcommand{\ABNTEXchapterfont}{\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+
+% Secao secundaria (1.1)
+\renewcommand{\ABNTEXsectionfont}{\bfseries\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+% Secao terciaria (1.1.1)
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+% Secao quaternaria (1.1.1.1)
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+% Secao quinaria (1.1.1.1.1)
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+
+% Remove o ponto final de cada entrada da
+% lista de abreviaturas e siglas
+\renewcommand{\glspostdescription}{}
+
+\addto\captionsbrazil{
+	\renewcommand{\bibname}{Refer\^encias}
+	\renewcommand{\indexname}{\'Indice}
+	\renewcommand{\contentsname}{Sum\'ario}
+	\renewcommand{\listfigurename}{Lista de figuras}
+	\renewcommand{\listtablename}{Lista de tabelas}
+	\renewcommand{\listadesimbolosname}{Lista de s\'imbolos}
+}
+
+% Por algum motivo, o algorithm2e estava pegando algumas palavras do espanhol.
+% Acredito que seja porque os comandos \para seja idêntico nos dois idiomas.
+% Esses comando resolvem o problema
+\SetKwFor{Para}{para}{faça}{fim para}
+\SetKwBlock{Inicio}{início}{fim}
+
+% Espaco entre as linhas do algoritmo
+\newcommand{\SetSpacedAlgorithm}{
+	\linespread{1.35}\selectfont
+}
+
+% Altera o titulo para esse
+\renewcommand{\listalgorithmcfname}{Lista de algoritmos}%
+
+% Distance between floats on the top or the bottom and the text;
+\setlength{\textfloatsep}{18pt plus 2pt minus 2pt}
+
+% Distance between floats inserted inside the page text (using h) and the text proper.
+\setlength{\intextsep}{18pt plus 2pt minus 2pt}
+
+% Titulos das ilustracoes e tabelas: tamanho 12, espaco simples, centralizados
+% quando ocupam uma linha e justificados (com recuo) quando ocupam mais linhas.
+\captionsetup{font=singlespacing,format=hang,justification=justified,singlelinecheck=true,skip=2pt}
+
+% Conteudo de quadros e tabelas em tamanho 12, como no template UFERSA
+% (o abnTeX2 usa fonte reduzida por padrao).
+\renewcommand{\IBGEtabfontsize}{\normalsize}
+
+\AtBeginDocument{%
+	% Aplica a mesma regra aos titulos montados com \IBGEtab
+	\renewcommand{\configurecaptions}{%
+		\captionsetup{format=hang,justification=justified,singlelinecheck=true}%
+	}%
+}
+
+% Fonte e nota das ilustracoes e tabelas: fonte menor, espaco simples,
+% alinhadas a esquerda. Uso: \Fonte{Elaborada pelo autor (2026).}
+\newcommand{\Fonte}[2][\fontename]{%
+	\vspace{2pt}%
+	\begingroup
+		\captionsetup{singlelinecheck=false,justification=raggedright}%
+		\begin{SingleSpace}%
+			\fonte[#1]{#2}%
+		\end{SingleSpace}%
+	\endgroup
+}
+
+% Cria o comando para fazer notas e anotacoes na figura e na tabela
+\newcommand{\Nota}[2][\notaname]{\Fonte[#1]{#2}}
+
+
+%Remove as bordas do hyperlinks.
+\newcommand{\removerbordasdohyperlink}[1]{%
+	\ifthenelse{\equal{#1}{sim}}{%
+  		\hypersetup{%
+  		    pdfborder = {0 0 0}
+  		}
+    }{}
+}
+
+% Altera a cor dos hyperlinks do documento
+\newcommand{\cordohyperlink}[1]{%
+	\ifthenelse{\equal{#1}{sim}}{%
+		\hypersetup{%
+			colorlinks = true,
+			linkcolor = blue,
+			citecolor = blue,
+			urlcolor = blue
+		}
+	}{}
+}
+
+% Adiciona o genero do orientador e do coorientador no documento.
+
+\provideboolean{ufersa@orientadorfeminino}
+\provideboolean{ufersa@coorientadorfeminino}
+
+\setboolean{ufersa@orientadorfeminino}{false}
+\setboolean{ufersa@coorientadorfeminino}{false}
+
+\newcommand{\orientadorfeminino}[1]{
+	 \ifthenelse{\equal{#1}{sim}}{%
+	 	\setboolean{ufersa@orientadorfeminino}{true}
+	 }{\setboolean{ufersa@orientadorfeminino}{false}}
+}
+
+\newcommand{\coorientadorfeminino}[1]{
+	\ifthenelse{\equal{#1}{sim}}{%
+		\setboolean{ufersa@coorientadorfeminino}{true}
+	}{\setboolean{ufersa@coorientadorfeminino}{false}}
+}
+
+\newcommand{\artigoorientador}{%
+	\ifthenelse{\boolean{ufersa@orientadorfeminino}}{Orientadora}{Orientador}%
+}
+
+\newcommand{\artigocoorientador}{%
+	\ifthenelse{\boolean{ufersa@coorientadorfeminino}}{Coorientadora}{Coorientador}%
+}
+
+% Determina o tipo do trabalho apresentado
+% Valores aceitos em \trabalhoacademico{}:
+%   tccgraduacao      - Monografia (graduacao)
+%   memorial          - Memorial (graduacao)
+%   tccespecializacao - Trabalho de Conclusao de Curso (especializacao)
+%   dissertacao       - Dissertacao (mestrado)
+%   tese              - Tese (doutorado)
+
+\provideboolean{ufersa@ehgraduacao}
+\setboolean{ufersa@ehgraduacao}{true}
+
+\newcommand{\ufersa@tipodetrabalho}{Monografia}
+\newcommand{\ufersa@apresentad}{apresentada}
+
+\newcommand{\trabalhoacademico}[1]{%
+	\setboolean{ufersa@ehgraduacao}{false}%
+	\ifthenelse{\equal{#1}{tccgraduacao}}{%
+		\setboolean{ufersa@ehgraduacao}{true}%
+		\renewcommand{\ufersa@tipodetrabalho}{Monografia}%
+		\renewcommand{\ufersa@apresentad}{apresentada}%
+	}{}%
+	\ifthenelse{\equal{#1}{memorial}}{%
+		\setboolean{ufersa@ehgraduacao}{true}%
+		\renewcommand{\ufersa@tipodetrabalho}{Memorial}%
+		\renewcommand{\ufersa@apresentad}{apresentado}%
+	}{}%
+	\ifthenelse{\equal{#1}{tccespecializacao}}{%
+		\renewcommand{\ufersa@tipodetrabalho}{Trabalho de Conclusão de Curso}%
+		\renewcommand{\ufersa@apresentad}{apresentado}%
+	}{}%
+	\ifthenelse{\equal{#1}{dissertacao}}{%
+		\renewcommand{\ufersa@tipodetrabalho}{Dissertação}%
+		\renewcommand{\ufersa@apresentad}{apresentada}%
+	}{}%
+	\ifthenelse{\equal{#1}{tese}}{%
+		\renewcommand{\ufersa@tipodetrabalho}{Tese}%
+		\renewcommand{\ufersa@apresentad}{apresentada}%
+	}{}%
+	\tipotrabalho{\ufersa@tipodetrabalho}%
+}
+
+% Na graduacao, autor e titulo vao em maiusculas na capa, na folha de
+% rosto e na folha de aprovacao; na pos-graduacao, sao grafados como digitados.
+\newcommand{\ufersa@caixa}[1]{%
+	\ifthenelse{\boolean{ufersa@ehgraduacao}}{\MakeUppercase{#1}}{#1}%
+}
+
+\AtBeginDocument{ %
+	% Adiciona os metadados do documento gerado
+	\hypersetup{ %
+		pdftitle={\imprimirtitulo},%
+		pdfauthor={\imprimirautor},%
+		pdfsubject={\imprimirtipotrabalho\ - \imprimiries},%
+		pdfcreator={LaTeX com abnTeX2 - modelo nao oficial UFERSA},%
+	}%
+	\addtolength\belowdisplayshortskip{\onelineskip}
+}
+
+% Numeracao da tabela comeca em 1
+\setcounter{table}{0}
+
+% Ambiente para alineas e e subalineas (incisos) com ponto
+\newlist{alineascomponto}{itemize}{2}
+\setlist[alineascomponto,1]{label={$\bullet$},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineascomponto,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{subalineascomponto}{enumerate}{1}
+\setlist[subalineascomponto,1]{label={$\circ$},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+
+% Ambiente para alineas e e subalineas (incisos) com numeros
+\newlist{alineascomnumero}{enumerate}{2}
+\setlist[alineascomnumero,1]{label={$\arabic*$.},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineascomnumero,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{subalineascomnumero}{enumerate}{1}
+\setlist[subalineascomnumero,1]{label={$\arabic*$.},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Funcoes                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Verifica se uma determinada macro não está vazia
+\newcommand{\ifnotempty}[3]{\ifthenelse{\not\equal{#1}{}}{#2}{#3}}
+
+% Verifica se uma determinada macro está vazia
+\newcommand{\ifempty}[3]{\ifthenelse{\equal{#1}{}}{#2}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Variaveis               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ies}{\def \@ies}
+\newcommand{\iessigla}{\def \@iessigla}
+\newcommand{\proreitoria}{\def \@proreitoria}
+\newcommand{\departamento}{\def \@departamento}
+\newcommand{\curso}{\def \@curso}
+\newcommand{\programa}{\def \@programa}
+\newcommand{\tituloobtido}{\def \@tituloobtido}
+\newcommand{\linhadepesquisa}{\def \@linhadepesquisa}
+\newcommand{\subtitulo}{\def \@subtitulo}
+\newcommand{\dataaprovacao}{\def \@dataaprovacao}
+\newcommand{\autordaepigrafe}{\def \@autordaepigrafe}
+\newcommand{\orientadories}{\def \@orientadories}
+\newcommand{\coorientadories}{\def \@coorientadories}
+\newcommand{\membrodabancadois}{\def \@membrodabancadois}
+\newcommand{\membrodabancatres}{\def \@membrodabancatres}
+\newcommand{\membrodabancaquatro}{\def \@membrodabancaquatro}
+\newcommand{\membrodabancacinco}{\def \@membrodabancacinco}
+\newcommand{\membrodabancaseis}{\def \@membrodabancaseis}
+\newcommand{\membrodabancadoisies}{\def \@membrodabancadoisies}
+\newcommand{\membrodabancatresies}{\def \@membrodabancatresies}
+\newcommand{\membrodabancaquatroies}{\def \@membrodabancaquatroies}
+\newcommand{\membrodabancacincoies}{\def \@membrodabancacincoies}
+\newcommand{\membrodabancaseisies}{\def \@membrodabancaseisies}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Imprimir as Variaveis        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimiries}{\@ies}
+\newcommand{\imprimiriessigla}{\@iessigla}
+\newcommand{\imprimirproreitoria}{\@proreitoria}
+\newcommand{\imprimirdepartamento}{\@departamento}
+\newcommand{\imprimircurso}{\@curso}
+\newcommand{\imprimirprograma}{\@programa}
+\newcommand{\imprimirtituloobtido}{\@tituloobtido}
+\newcommand{\imprimirlinhadepesquisa}{\@linhadepesquisa}
+\newcommand{\imprimirsubtitulo}{\@subtitulo}
+\newcommand{\imprimirdataaprovacao}{\@dataaprovacao}
+\newcommand{\imprimirautordaepigrafe}{\@autordaepigrafe}
+\newcommand{\imprimirorientadories}{\@orientadories}
+\newcommand{\imprimircoorientadories}{\@coorientadories}
+\newcommand{\imprimirmembrodabancadois}{\@membrodabancadois}
+\newcommand{\imprimirmembrodabancatres}{\@membrodabancatres}
+\newcommand{\imprimirmembrodabancaquatro}{\@membrodabancaquatro}
+\newcommand{\imprimirmembrodabancacinco}{\@membrodabancacinco}
+\newcommand{\imprimirmembrodabancaseis}{\@membrodabancaseis}
+\newcommand{\imprimirmembrodabancadoisies}{\@membrodabancadoisies}
+\newcommand{\imprimirmembrodabancatresies}{\@membrodabancatresies}
+\newcommand{\imprimirmembrodabancaquatroies}{\@membrodabancaquatroies}
+\newcommand{\imprimirmembrodabancacincoies}{\@membrodabancacincoies}
+\newcommand{\imprimirmembrodabancaseisies}{\@membrodabancaseisies}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Valor de Padrao           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ies{Universidade Federal Rural do Semi-Árido}
+\iessigla{UFERSA}
+\proreitoria{Pró-Reitoria de Graduação}
+\departamento{}
+\curso{}
+\programa{}
+\tituloobtido{}
+\linhadepesquisa{}
+\subtitulo{}
+\autor{}
+\titulo{}
+\data{}
+\local{}
+\dataaprovacao{}
+\autordaepigrafe{}
+\orientador{}
+\orientadories{}
+\coorientador{}
+\coorientadories{}
+\membrodabancadois{}
+\membrodabancadoisies{}
+\membrodabancatres{}
+\membrodabancatresies{}
+\membrodabancaquatro{}
+\membrodabancaquatroies{}
+\membrodabancacinco{}
+\membrodabancacincoies{}
+\membrodabancaseis{}
+\membrodabancaseisies{}
+\trabalhoacademico{tccgraduacao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       Natureza do trabalho          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Texto de apresentacao (natureza) usado na folha de rosto e na folha de
+% aprovacao, conforme os templates da UFERSA:
+%  - graduacao: "Monografia apresentada à UFERSA como requisito para
+%    obtenção do título de Bacharel em XYZ."
+%  - pos-graduacao: "Tese apresentada ao Doutorado em XYZ do Programa de
+%    Pós-Graduação em XYZ da UFERSA como requisito para obtenção do
+%    título de Doutor em XYZ."
+\preambulo{%
+	\ifthenelse{\boolean{ufersa@ehgraduacao}}{%
+		\imprimirtipotrabalho\ \ufersa@apresentad\ à \imprimiries\ como requisito
+		para obtenção do título de \imprimirtituloobtido.%
+	}{%
+		\imprimirtipotrabalho\ \ufersa@apresentad\ ao \imprimircurso%
+		\abntex@ifnotempty{\imprimirprograma}{\ do \imprimirprograma}\ da
+		\imprimiries\ como requisito para obtenção do título de
+		\imprimirtituloobtido.%
+		\abntex@ifnotempty{\imprimirlinhadepesquisa}{\par\vspace{\onelineskip}%
+			Linha de Pesquisa: \imprimirlinhadepesquisa}%
+	}%
+}
+
+% Titulo em negrito; subtitulo (opcional) sem negrito.
+\newcommand{\imprimirtitulocompleto}{%
+	{\bfseries\ufersa@caixa{\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{:}}%
+	\abntex@ifnotempty{\imprimirsubtitulo}{ \ufersa@caixa{\imprimirsubtitulo}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Capa                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\imprimircapa}{%
+	% A capa nao e contada na paginacao (template UFERSA): recebe o rotulo
+	% "capa" e a folha de rosto passa a ser a pagina 1.
+	\begingroup
+	\renewcommand{\thepage}{capa}%
+	\hypersetup{pageanchor=false}%
+	\begin{capa}%
+		\center
+		\includegraphics[width=4.2cm]{lib/logo-ufersa}\par
+		\vspace{0.3cm}
+		\MakeUppercase{\imprimiries}\par
+		\abntex@ifnotempty{\imprimirproreitoria}{\MakeUppercase{\imprimirproreitoria}\par}
+		\abntex@ifnotempty{\imprimirdepartamento}{\MakeUppercase{\imprimirdepartamento}\par}
+		\abntex@ifnotempty{\imprimirprograma}{\MakeUppercase{\imprimirprograma}\par}
+		\abntex@ifnotempty{\imprimircurso}{\MakeUppercase{\imprimircurso}\par}
+
+		\vfill
+		\ufersa@caixa{\imprimirautor}\par
+		\vfill
+		\imprimirtitulocompleto\par
+		\vfill
+		\vfill
+		\MakeUppercase{\imprimirlocal}\par
+		\imprimirdata
+	\end{capa}%
+	\endgroup
+	\hypersetup{pageanchor=true}%
+	\setcounter{page}{1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Folha de Rosto            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Bloco da natureza do trabalho: recuo de 8 cm, espaco simples, justificado
+\newcommand{\ufersa@blocodanatureza}[1]{%
+	\noindent\hspace*{8cm}%
+	\begin{minipage}{\dimexpr\textwidth-8cm\relax}
+		\SingleSpacing
+		#1
+	\end{minipage}\par
+}
+
+\renewcommand{\folhaderostocontent}{
+	\begin{center}
+		\ufersa@caixa{\imprimirautor}\par
+		\vspace*{4cm}
+		\imprimirtitulocompleto\par
+	\end{center}
+
+	\vspace*{3cm}
+
+	\ufersa@blocodanatureza{%
+		\imprimirpreambulo\par
+		\vspace{\onelineskip}
+		\artigoorientador: \imprimirorientador\par
+		\abntex@ifnotempty{\imprimircoorientador}{%
+			\vspace{\onelineskip}
+			\artigocoorientador: \imprimircoorientador\par
+		}%
+	}
+
+	\vfill
+	\begin{center}
+		\MakeUppercase{\imprimirlocal}\par
+		\imprimirdata
+	\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Folha de Aprovacao          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define o comprimento da linha das assinaturas na Folha de Aprovacao
+\setlength{\ABNTEXsignwidth}{9cm}
+
+% Largura da linha da assinatura
+\setlength{\ABNTEXsignthickness}{0.5pt}
+
+% Espaço entre uma assintura e outra
+\setlength{\ABNTEXsignskip}{\onelineskip}
+
+% Imprime um membro da banca: "Nome, Prof. Dr. (SIGLA)" e a funcao.
+\newcommand{\ufersa@membrodabanca}[3]{%
+	\abntex@ifnotempty{#1}{%
+		\assinatura{#1\abntex@ifnotempty{#2}{ (#2)}\\ #3}%
+	}%
+}
+
+% Folha de aprovacao gerada pelo LaTeX, conforme o template da UFERSA.
+% O orientador preside a banca; o coorientador (se houver) vem em seguida;
+% os demais membros sao "Membro Examinador".
+\newcommand{\imprimirfolhadeaprovacao}{%
+	\begin{folhadeaprovacao}
+		\begin{center}
+			\ufersa@caixa{\imprimirautor}\par
+			\vspace*{2\onelineskip}
+			\imprimirtitulocompleto\par
+		\end{center}
+
+		\vspace*{2\onelineskip}
+
+		\ufersa@blocodanatureza{\imprimirpreambulo}
+
+		\vspace*{2\onelineskip}
+
+		\noindent Defendida em: \ifthenelse{\equal{\imprimirdataaprovacao}{}}%
+			{\rule{1.2cm}{0.4pt} / \rule{1.2cm}{0.4pt} / \rule{2cm}{0.4pt}}%
+			{\imprimirdataaprovacao}.
+
+		\vspace*{2\onelineskip}
+
+		\begin{center}
+			\textbf{BANCA EXAMINADORA}
+		\end{center}
+
+		\begin{SingleSpace}
+		\ufersa@membrodabanca{\imprimirorientador}{\imprimirorientadories}{Presidente}
+		\ufersa@membrodabanca{\imprimircoorientador}{\imprimircoorientadories}{\artigocoorientador}
+		\ufersa@membrodabanca{\imprimirmembrodabancadois}{\imprimirmembrodabancadoisies}{Membro Examinador}
+		\ufersa@membrodabanca{\imprimirmembrodabancatres}{\imprimirmembrodabancatresies}{Membro Examinador}
+		\ufersa@membrodabanca{\imprimirmembrodabancaquatro}{\imprimirmembrodabancaquatroies}{Membro Examinador}
+		\ufersa@membrodabanca{\imprimirmembrodabancacinco}{\imprimirmembrodabancacincoies}{Membro Examinador}
+		\ufersa@membrodabanca{\imprimirmembrodabancaseis}{\imprimirmembrodabancaseisies}{Membro Examinador}
+		\end{SingleSpace}
+	\end{folhadeaprovacao}
+}
+
+% Insere a folha de aprovacao ja assinada (PDF digitalizado), quando o
+% curso/programa exigir a versao assinada na versao final.
+\newcommand{\imprimirfolhadeaprovacaoassinada}[1]{%
+	\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{#1}%
+}
+
+%============================================================
+%   Ambientes de teorema
+%============================================================
+
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{corolario}{Corolário}[chapter]
+\newtheorem{proposicao}{Proposição}[chapter]
+\newtheorem{definicao}{Definição}[chapter]
+\newtheorem{exemplo}{Exemplo}[chapter]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Questoes                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Contar as questoes
+\newcounter{quest}
+
+\newenvironment{questao}{ %
+	\begin{list}{\textbf{Questão \arabic{quest}.}}{\usecounter{quest} %
+		\setlength{\labelwidth}{-2mm} \setlength{\parsep}{0mm} %
+		\setlength{\topsep}{0mm} \setlength{\leftmargin}{0mm}} %
+	\renewcommand{\labelenumi}{(\alph{enumi})}	%
+}{ %
+	\end{list} %
+} %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Dedicatoria             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Texto no pe da pagina, com recuo de 8 cm (template UFERSA)
+\newcommand{\imprimirdedicatoria}[1]{
+	\clearpage
+	\vspace*{\fill}
+	\ufersa@blocodanatureza{\input{#1}}
+	\clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Errata               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Errata em PDF (inserida apos a folha de rosto)
+\newcommand{\imprimirerrata}[1]{
+    \includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            Agradecimentos           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimiragradecimentos}[1]{
+	\begin{agradecimentos}
+		\input{#1}
+	\end{agradecimentos}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Epigrafe              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Citacao no pe da pagina, com recuo de 8 cm e autoria alinhada a direita
+\newcommand{\imprimirepigrafe}[1]{
+	\clearpage
+	\vspace*{\fill}
+	\ufersa@blocodanatureza{%
+		\input{#1}\par
+		\abntex@ifnotempty{\imprimirautordaepigrafe}{%
+			\raggedleft \imprimirautordaepigrafe\par
+		}%
+	}
+	\clearpage
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Ficha Catalografica        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Insere o PDF da ficha catalografica gerado pelo sistema da biblioteca
+% (SIGAA > Biblioteca > Serviços ao usuário > Solicitar ficha catalográfica).
+% Pelo template da UFERSA, a ficha nao e contada na paginacao.
+\newcommand{\imprimirfichacatalografica}[1]{
+	\clearpage
+	\begingroup
+	\renewcommand{\thepage}{ficha}%
+	\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{#1}%
+	\endgroup
+	\addtocounter{page}{-1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Resumo                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Palavras-chave: em letras minusculas (exceto nomes proprios e
+% cientificos), separadas por ponto e virgula e finalizadas por ponto
+% (NBR 6028:2021 e template UFERSA).
+% Espacamento 1,5 nas palavras-chave (template UFERSA).
+\newcommand{\palavraschave}[1]{ %
+	\par\vspace{\onelineskip}
+	\begin{Spacing}{1.5}
+		\noindent \textbf{Palavras-chave:} #1\par
+	\end{Spacing}
+}
+
+\newcommand{\keywords}[1]{ %
+	\par\vspace{\onelineskip}
+	\begin{Spacing}{1.5}
+		\noindent \textbf{Keywords:} #1\par
+	\end{Spacing}
+}
+
+% Resumo em paragrafo unico, espaco simples e justificado
+\newcommand{\imprimirresumo}[1]{ %
+	\begin{resumo} %
+		\SingleSpacing %
+		\input{#1} %
+	\end{resumo} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Abstract              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirabstract}[1]{ %
+	\begin{resumo}[Abstract] %
+		\SingleSpacing %
+		\begin{otherlanguage*}{english} %
+			\input{#1} %
+		\end{otherlanguage*} %
+	\end{resumo} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Listas de Quadros, Graficos e Mapas %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Novos tipos de ilustracao com lista propria (template UFERSA)
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\newcommand{\graficoname}{Gráfico}
+\newcommand{\listofgraficosname}{Lista de gráficos}
+\newfloat[chapter]{grafico}{lgr}{\graficoname}
+\newlistof{listofgraficos}{lgr}{\listofgraficosname}
+\newlistentry{grafico}{lgr}{0}
+\counterwithout{grafico}{chapter}
+\renewcommand{\cftgraficoname}{\graficoname\space}
+\renewcommand*{\cftgraficoaftersnum}{\hfill--\hfill}
+
+\newcommand{\mapaname}{Mapa}
+\newcommand{\listofmapasname}{Lista de mapas}
+\newfloat[chapter]{mapa}{lom}{\mapaname}
+\newlistof{listofmapas}{lom}{\listofmapasname}
+\newlistentry{mapa}{lom}{0}
+\counterwithout{mapa}{chapter}
+\renewcommand{\cftmapaname}{\mapaname\space}
+\renewcommand*{\cftmapaaftersnum}{\hfill--\hfill}
+
+\newcommand{\imprimirlistadequadros}{ %
+	\pdfbookmark[0]{\listofquadrosname}{loq} %
+	\listofquadros* %
+	\cleardoublepage %
+}
+
+\newcommand{\imprimirlistadegraficos}{ %
+	\pdfbookmark[0]{\listofgraficosname}{lgr} %
+	\listofgraficos* %
+	\cleardoublepage %
+}
+
+\newcommand{\imprimirlistademapas}{ %
+	\pdfbookmark[0]{\listofmapasname}{lom} %
+	\listofmapas* %
+	\cleardoublepage %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Codigos-fonte      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Comandos para formatar a exibicao de codigos-fonte
+
+\renewcommand{\lstlistingname}{Código-fonte}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de códigos-fonte}%
+
+\lstset{
+	commentstyle=\color{green!40!black}\ttfamily,
+	basicstyle=\ttfamily\small,
+	xleftmargin=15pt,
+	numbers=left,
+	keywordstyle=\color{blue},
+	tabsize=2,
+	rulecolor=\color{black},
+	upquote=true,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	belowskip=\onelineskip,
+	belowcaptionskip=\onelineskip,
+	literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	         {ã}{{\~a}}1 {õ}{{\~o}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+	         {ç}{{\c{c}}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Ç}{{\c{C}}}1
+}
+
+\AtBeginDocument{ %
+	\counterwithout{lstlisting}{chapter}
+}
+
+\newlength\mylen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\newlistentry{lstlisting}{lol}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftlstlistingpresnum{\lstlistingname~}
+\settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
+\addtolength\cftlstlistingnumwidth{\mylen} %
+\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
+
+
+\newcommand{\imprimirlistadecodigosfonte}{ %
+	\begin{KeepFromToc} %
+		\lstlistoflistings %
+	\end{KeepFromToc} %
+	\cleardoublepage %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Ilustracoes        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% A lista de Ilustracoes não deve aparecer no sumario
+
+\newcommand{\imprimirlistadeilustracoes}{
+	\pdfbookmark[0]{\listfigurename}{lof}
+	\listoffigures* %
+	\cleardoublepage %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Algoritmos         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength\myAlgoLen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loadepth\@ne
+\newlistof{algorithms}{loa}{\listalgorithmname}
+\newlistentry{algocf}{loa}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftalgocfpresnum{\algorithmcfname~}
+\settowidth\myAlgoLen{\cftalgocfpresnum\cftalgocfaftersnum}
+\addtolength\cftalgocfnumwidth{\myAlgoLen} %
+\renewcommand\cftalgocfaftersnum{\hfill\textendash\hfill}
+
+
+% A lista de Algoritmos nao deve aparecer no sumario
+
+\newcommand{\imprimirlistadealgoritmos}{
+	\listofalgorithms
+	\cleardoublepage %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            Lista de Tabelas         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% A lista de tabela nao deve aparecer no sumario
+\newcommand{\imprimirlistadetabelas}{ %
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables* %
+	\cleardoublepage %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Lista de Abreviaturas e Siglas   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Largura da lista de abreviaturas
+\setlength{\glsdescwidth}{\linewidth}
+
+% O estilo "long" usa longtable, que incrementa o contador de tabelas;
+% o valor e restaurado para a primeira tabela do texto ser a "Tabela 1".
+\newcounter{ufersa@tabelasalvas}
+\newcommand{\imprimirlistadeabreviaturasesiglas}{ %
+	\setcounter{ufersa@tabelasalvas}{\value{table}}%
+	\pdfbookmark[0]{Lista de abreviaturas e siglas}{siglas}
+	\printglossary[type=\acronymtype,style=long,nonumberlist,title={Lista de abreviaturas e siglas}]%
+	\cleardoublepage %
+	\setcounter{table}{\value{ufersa@tabelasalvas}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Lista de Simbolos           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirlistadesimbolos}[1]{
+	\input{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Glossario              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlist{nosep}
+\newglossarystyle{glossario-abnt}{%
+	%
+	\renewenvironment{theglossary}%
+	{\vspace{-0.3cm}\begin{description}[leftmargin=0cm]\itemsep -1pt}{\end{description}}%
+	%
+	\renewcommand*{\glossaryheader}{}%
+
+	% indicate what to do at the start of each logical group
+
+	\renewcommand*{\glsgroupheading}[1]{%
+		\vspace{0cm}\item[{\glsgetgrouptitle{##1}}] \vspace{\onelineskip}
+	}
+	%
+	\renewcommand*{\glsgroupskip}{}%
+	% Depois da palavra, colocar o ":" e no fim o ponto final "."
+	\renewcommand*{\glossaryentryfield}[5]{%
+		\item[\glstarget{##1}{##2}:] ##3.%
+	}%
+}
+
+\newcommand{\imprimirglossario}{ %
+	\setglossarystyle{glossario-abnt} %
+	\printglossary[title=Glossário,toctitle=Glossário] %
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Referencias           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% O arquivo lib/abnt-opcoes-ufersa.bib contem opcoes do estilo
+% bibliografico (ver lib/preambulo.tex) e e incluido automaticamente.
+\newcommand{\imprimirreferencias}[1]{ %
+	\bibliography{lib/abnt-opcoes-ufersa,#1} %
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Apendices e Anexos         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Pelo template da UFERSA, os apendices e anexos aparecem no texto como
+% "APÊNDICE A – TÍTULO" (centralizado) e "ANEXO A – TÍTULO" (alinhado a
+% esquerda), em negrito e maiusculas, e no sumario alinhados aos demais
+% titulos, sem uma folha separadora "APÊNDICES"/"ANEXOS".
+\newcommand{\apendice}[1]{\chapter{#1}}
+\newcommand{\anexo}[1]{\chapter{#1}}
+
+\provideboolean{ufersa@anexos}
+\setboolean{ufersa@anexos}{false}
+
+\newcommand{\imprimirapendices}{\apendices}
+\newcommand{\imprimiranexos}{\anexos\setboolean{ufersa@anexos}{true}}
+
+% Titulo da secao primaria: igual ao do abnTeX2, exceto pelo alinhamento
+% dos anexos a esquerda.
+\def\printchaptertitle#1{%
+	\chaptitlefont%
+	\ifthenelse{\boolean{abntex@innonumchapter}}{\centering\ABNTEXchapterupperifneeded{#1}}{%
+	\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+		\ifthenelse{\boolean{ufersa@anexos}}{\raggedright}{\centering}%
+		\settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+		\ABNTEXchapterupperifneeded{#1}%
+	}{%
+		\settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+		\parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}}%
+	}%
+}
+
+% Numero da secao primaria com um unico espaco antes do titulo
+% ("1 INTRODUÇÃO" e "APÊNDICE A – TÍTULO"); a definicao original do
+% abnTeX2 insere espacos duplicados.
+\renewcommand{\printchapternum}{%
+	\tocprintchapter
+	\setboolean{abntex@innonumchapter}{false}%
+	\chapnumfont
+	\ifthenelse{\boolean{abntex@apendiceousecao}}{%
+		\tocinnonumchapter\thechapter\unskip~\textendash~\ignorespaces
+	}{%
+		\thechapter\space
+	}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Numero das Páginas        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Paginacao no canto superior direito, em fonte menor (NBR 14724)
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{}
+\makeoddhead{abntheadings}{}{}{\ABNTEXfontereduzida\thepage}
+
+% Cabecalho do inicio do capitulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Indice               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirindice}{ %
+	\printindex
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Configuracao do Sumario      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\imprimirsumario}{ %
+	\pdfbookmark[0]{\contentsname}{toc}
+	\tableofcontents*
+	\cleardoublepage
+}
+
+% Modifica o espaçamento no sumario
+% Nao ha espacos
+\setlength{\cftbeforeparagraphskip}{0pt}
+\setlength{\cftbeforesubsectionskip}{0pt}
+\setlength{\cftbeforesectionskip}{0pt}
+\setlength{\cftbeforesubsubsectionskip}{0pt}
+\setlength{\cftbeforechapterskip}{0pt}
+
+% Fontes no sumario (template UFERSA): primarias e secundarias em negrito;
+% terciarias a quinarias sem negrito.
+\renewcommand\cftsectionfont{\normalsize\bfseries}
+\renewcommand\cftsubsectionfont{\normalsize\normalfont}
+\renewcommand\cftsubsubsectionfont{\normalsize\normalfont}
+\renewcommand*{\cftparagraphfont}{\normalsize\normalfont}
+
+% Paginas do sumario nao podem ser negrito.
+\renewcommand\cftchapterpagefont{\normalfont}
+\renewcommand\cftsectionpagefont{\normalfont}
+\renewcommand\cftsubsectionpagefont{\normalfont}
+\renewcommand\cftsubsubsectionpagefont{\normalfont}
+\renewcommand\cftparagraphpagefont{\normalfont}

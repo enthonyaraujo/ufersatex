@@ -1,0 +1,13 @@
+% Opções do estilo abntex2-alf usadas por este modelo.
+%
+% NBR 10520:2023, 6.1.1: na citação, o sobrenome do autor é grafado em
+% letras maiúsculas e minúsculas também dentro dos parênteses, ex.:
+% (Silva, 2023). O abnTeX2 já prevê esse estilo ("(Author, YEAR)"), mas a
+% opção de pacote correspondente (abnt-cite-style=AuthorYEAR) colide com
+% abnt-cite-style=AUTHORYEAR, porque o BibTeX não diferencia maiúsculas de
+% minúsculas nas chaves. Por isso a opção é definida aqui com outra chave
+% e ativada com \citeoption{ufersa-nbr10520-2023} em lib/preambulo.tex.
+
+@ABNT-options{ufersa-nbr10520-2023,
+  abnt-cite-style="(Author, YEAR)",
+  key="aaaa"}

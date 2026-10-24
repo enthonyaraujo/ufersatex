@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                   %%
+%% Modelo LaTeX NÃO OFICIAL para trabalhos           %%
+%% acadêmicos da UFERSA, baseado nos templates       %%
+%% oficiais (Word) da UFERSA e nas normas da ABNT.   %%
+%%                                                   %%
+%%                                                   %%
+%% Preencha os campos entre colchetes [ ] e apague   %%
+%% os colchetes. Veja o README.md para instruções.   %%
+%%                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+    a4paper,          % Tamanho da folha A4
+    12pt,             % Tamanho da fonte 12pt
+    chapter=TITLE,    % Seções primárias em maiúsculas
+    section=Title,    % Seções secundárias como digitadas (use maiúsculas/minúsculas conforme a gramática)
+    subsection=Title, % Seções terciárias como digitadas
+    oneside,          % Impressão em apenas uma face do papel
+    english,          % Hifenizacoes em ingles
+    brazil,           % Ultimo idioma eh o idioma padrao do documento
+    ]{abntex2}
+
+\input{lib/preambulo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                Tipo do trabalho                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Opções: tccgraduacao (Monografia), memorial, tccespecializacao,
+%         dissertacao, tese
+\trabalhoacademico{tccgraduacao}
+
+\removerbordasdohyperlink{sim}
+\cordohyperlink{nao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         Informacao sobre a instituicao          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ies{Universidade Federal Rural do Semi-Árido}
+\iessigla{UFERSA}
+
+% Graduação: Pró-Reitoria de Graduação
+% Pós-graduação: Pró-Reitoria de Pesquisa e Pós-Graduação
+\proreitoria{Pró-Reitoria de Graduação}
+
+% Graduação: departamento ao qual o curso está vinculado
+% (deixe vazio para omitir da capa)
+\departamento{[Departamento de XYZ]}
+
+% Pós-graduação: nome do programa (deixe vazio na graduação)
+% Exemplo: \programa{Programa de Pós-Graduação em XYZ}
+\programa{}
+
+% Linha exibida na capa e usada no texto de apresentação.
+% Graduação:      \curso{Curso de XYZ}
+% Especialização: \curso{Curso de Especialização em XYZ}
+% Mestrado:       \curso{Mestrado em XYZ}
+% Doutorado:      \curso{Doutorado em XYZ}
+\curso{[Curso de XYZ]}
+
+% Título obtido com o trabalho.
+% Exemplos: Bacharel em XYZ, Licenciado em XYZ, Especialista em XYZ,
+%           Mestre em XYZ, Doutor em XYZ
+\tituloobtido{[Bacharel em XYZ]}
+
+% Pós-graduação: linha de pesquisa (deixe vazio para omitir)
+\linhadepesquisa{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Informacoes relacionadas ao trabalho       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Na graduação, autor e título são convertidos para maiúsculas
+% automaticamente; na pós-graduação, são impressos como digitados.
+\autor{[Nome do Autor]}
+\titulo{[Título do Trabalho]}
+\subtitulo{[Subtítulo]} % Opcional: deixe vazio se não houver subtítulo
+\local{[Cidade]}
+\data{[Ano]}
+
+% Data da defesa. Deixe vazio para imprimir "____ / ____ / ______".
+% Exemplo: \dataaprovacao{28/03/2026}
+\dataaprovacao{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           Informação sobre o Orientador         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Titulação após o nome completo, conforme o template da UFERSA.
+\orientador{[Nome Completo], Prof. Dr.}
+\orientadories{UFERSA}             % Sigla da instituição do orientador
+\orientadorfeminino{nao}           % 'sim' para "Orientadora"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          Informação sobre o Coorientador        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Deixe vazio para remover o coorientador da folha de rosto e da
+% folha de aprovação (onde aparece logo após o orientador).
+\coorientador{}
+\coorientadories{}
+\coorientadorfeminino{nao}         % 'sim' para "Coorientadora"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              Informação sobre a banca           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% O orientador é impresso automaticamente como "Presidente".
+% Os demais membros aparecem como "Membro Examinador".
+% Deixe o nome vazio para remover o membro da folha de aprovação.
+
+\membrodabancadois{[Nome do Examinador Interno], Prof. Dr.}
+\membrodabancadoisies{UFERSA}
+\membrodabancatres{[Nome do Examinador Externo], Prof. Dr.}
+\membrodabancatresies{[SIGLA]}
+\membrodabancaquatro{}
+\membrodabancaquatroies{}
+
+\begin{document}
+
+	% Elementos pré-textuais
+	\imprimircapa
+	\imprimirfolhaderosto{}
+
+	% Ficha catalográfica: substitua o PDF de exemplo pelo gerado em
+	% SIGAA > Biblioteca > Serviços ao usuário > Solicitar ficha catalográfica
+	\imprimirfichacatalografica{1-pre-textuais/ficha-2}
+
+	%\imprimirerrata{1-pre-textuais/errata.pdf}   % Opcional
+
+	\imprimirfolhadeaprovacao
+	% Se o curso exigir a folha de aprovação assinada, comente a linha
+	% acima e insira o PDF digitalizado:
+	%\imprimirfolhadeaprovacaoassinada{caminho/para/folha-assinada.pdf}
+
+	\imprimirdedicatoria{1-pre-textuais/dedicatoria}           % Opcional
+	\imprimiragradecimentos{1-pre-textuais/agradecimentos}     % Opcional
+	\imprimirepigrafe{1-pre-textuais/epigrafe}                 % Opcional
+	\imprimirresumo{1-pre-textuais/resumo}
+	\imprimirabstract{1-pre-textuais/abstract}
+
+	% Listas (opcionais): mantenha apenas as que se aplicam ao trabalho
+	\imprimirlistadeilustracoes                                % Lista de figuras
+	%\imprimirlistadegraficos
+	%\imprimirlistademapas
+	\imprimirlistadequadros
+	\imprimirlistadetabelas
+	%\imprimirlistadealgoritmos
+	%\imprimirlistadecodigosfonte
+	\imprimirlistadeabreviaturasesiglas
+	%\imprimirlistadesimbolos{1-pre-textuais/lista-de-simbolos}
+	\imprimirsumario
+
+	% Elementos textuais
+	\textual
+	\input{2-textuais/1-introducao}
+	\input{2-textuais/2-fundamentacao-teorica}
+	\input{2-textuais/3-metodologia}
+	\input{2-textuais/4-resultados}
+	\input{2-textuais/5-conclusao}
+
+	% Elementos pós-textuais
+	\postextual
+	\imprimirreferencias{3-pos-textuais/referencias}
+
+	%\imprimirglossario                                        % Opcional
+
+	\imprimirapendices                                          % Opcional
+		\input{3-pos-textuais/apendices/apendice-a}
+		\input{3-pos-textuais/apendices/apendice-b}
+		\input{3-pos-textuais/apendices/apendice-c}
+		\input{3-pos-textuais/apendices/apendice-d}
+
+	%\imprimiranexos                                           % Opcional
+	%	\anexo{Título do anexo}
+	%	Texto ou \includepdf[pages=-]{caminho/do/anexo.pdf}
+
+	%\imprimirindice                                           % Opcional
+
+\end{document}

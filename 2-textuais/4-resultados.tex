@@ -1,0 +1,37 @@
+\chapter{Resultados e discussão}
+\label{cap:resultados}
+
+[Apresente e discuta os resultados obtidos.]
+
+\section{Tabelas}
+
+% Tabelas (NBR 14724, 5.9, e Normas de Apresentação Tabular do IBGE):
+%  - conteúdo numérico;
+%  - bordas laterais abertas e traços horizontais apenas no cabeçalho
+%    e no fechamento;
+%  - título acima e fonte abaixo.
+
+A Tabela~\ref{tab:exemplo} apresenta um exemplo de tabela.
+
+\begin{table}[htbp]
+	\IBGEtab{%
+		\caption{Exemplo de tabela}
+		\label{tab:exemplo}
+	}{%
+		\begin{tabular}{lccc}
+			\toprule
+			Categoria & Ano 1 & Ano 2 & Ano 3 \\
+			\midrule
+			Categoria A & 18 & 24 & 31 \\
+			Categoria B & 12 & 17 & 22 \\
+			Categoria C &  8 & 14 & 19 \\
+			\bottomrule
+		\end{tabular}%
+	}{%
+		\Fonte{Elaborada pelo autor ([Ano]).}%
+	}
+\end{table}
+
+\section{Notas de rodapé}
+
+Notas de rodapé são impressas em fonte menor e espaço simples\footnote{Exemplo de nota de rodapé.}.
