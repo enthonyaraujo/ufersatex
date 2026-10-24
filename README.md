@@ -1,7 +1,7 @@
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="figuras/ufersatex-logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="figuras/ufersatex-logo-light.svg">
-    <img alt="ufersaTeX" src="figuras/ufersatex-logo-light.svg" width="500">
+    <source media="(prefers-color-scheme: dark)" srcset="figuras/ufersatex2-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="figuras/ufersatex2-logo-light.svg">
+    <img alt="ufersaTeX" src="figuras/ufersatex2-logo-light.svg" width="500">
   </picture>
 
 
