@@ -1,3 +1,11 @@
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="figuras/ufersatex-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="figuras/ufersatex-logo-light.svg">
+    <img alt="ufersaTeX" src="figuras/ufersatex-logo-light.svg" width="500">
+  </picture>
+
+
 # Modelo LaTeX para trabalhos acadêmicos da UFERSA (não oficial)
 
 Modelo LaTeX para monografias, memoriais, TCCs de especialização,
